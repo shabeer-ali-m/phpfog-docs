@@ -184,7 +184,6 @@
 <h3 id="varnish">Varnish</h3>
 
 <p>All PHP Fog apps are fronted by Varnish, a web application accelerator that runs in front of your app server and caches content according to your HTTP Header information. Varnish can speed up delivery of your content by a factor of 300-1000, depending on your app. For more information, check out <a href="https://www.varnish-cache.org/">the Varnish site</a>. </p>
-
 <h4 id="default-caching">Default Caching</h4>
 
 <p>Varnish caches content automatically for 300 seconds (5 minutes). For static content, this means you don’t you have to do anything to take advantage of Varnish.</p>
@@ -203,6 +202,10 @@
   <li>Cookies with no values (i.e. empty).</li>
   <li>Cookies from Google Analytics.</li>
   <li>Cookies with the name “has_js”.</li>
+  <li>URLs ending in this list have their cookies stripped by default </li>
+    <ul>
+      <li>otf|jpg|jpeg|gif|png|tiff|tif|svg|swf|ico|mp3|mp4|m4a|ogg|mov|avi|wmv|css|js</li>
+    </ul>
 </ul>
 
 <h4 id="caching-dynamic-content">Caching Dynamic Content</h4>
