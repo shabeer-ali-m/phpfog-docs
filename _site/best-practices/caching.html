@@ -184,6 +184,7 @@
 <h3 id="varnish">Varnish</h3>
 
 <p>All PHP Fog apps are fronted by Varnish, a web application accelerator that runs in front of your app server and caches content according to your HTTP Header information. Varnish can speed up delivery of your content by a factor of 300-1000, depending on your app. For more information, check out <a href="https://www.varnish-cache.org/">the Varnish site</a>. </p>
+
 <h4 id="default-caching">Default Caching</h4>
 
 <p>Varnish caches content automatically for 300 seconds (5 minutes). For static content, this means you don’t you have to do anything to take advantage of Varnish.</p>
@@ -192,20 +193,39 @@
 
 <h4 id="caching-with-cookies">Caching with Cookies</h4>
 
-<p>Requests that include cookies are not cached by default so that stale cookies don’t impact the application behavior.</p>
+<p>Requests that include cookies aren’t cached so stale cookies don’t impact app behavior.</p>
 
-<p>In a few cases cookies are used client-side only, i.e. the cookies may be produced and consumed by JavaScript but are never processed by the PHP application. For example, Google Analytics uses cookies to store information about the page. In order to try to maximize default caching, Varnish will drop these special case cookies being sent in the HTTP request to the app. If those cookies are dropped and no other cookies are present, the page can follow the default caching behavior. </p>
+<p>In some cases, cookies are used client-side only. For example, client-side JavaScript may produce and consume cookies but never interact with the server-side PHP app. Google Analytics is one specific example that uses cookies to store information about the page. In order to maximize default caching, Varnish drops these special case cookies from the HTTP request to the app. </p>
 
 <p>Currently only the following cookies are dropped:</p>
 
 <ul>
-  <li>Cookies with no values (i.e. empty).</li>
+  <li>Empty cookies (i.e. cookies with no values).</li>
   <li>Cookies from Google Analytics.</li>
-  <li>Cookies with the name “has_js”.</li>
-  <li>URLs ending in this list have their cookies stripped by default </li>
+  <li>Cookies with the name <code>has_js</code>.</li>
+  <li>URL’s ending in media extensions have cookies stripped by default. These include:
     <ul>
-      <li>otf|jpg|jpeg|gif|png|tiff|tif|svg|swf|ico|mp3|mp4|m4a|ogg|mov|avi|wmv|css|js</li>
+      <li>otf</li>
+      <li>jpg</li>
+      <li>jpeg</li>
+      <li>gif</li>
+      <li>png</li>
+      <li>tiff</li>
+      <li>tif</li>
+      <li>svg</li>
+      <li>swf</li>
+      <li>ico</li>
+      <li>mp3</li>
+      <li>mp4</li>
+      <li>m4a</li>
+      <li>ogg</li>
+      <li>mov</li>
+      <li>avi</li>
+      <li>wmv</li>
+      <li>css</li>
+      <li>js</li>
     </ul>
+  </li>
 </ul>
 
 <h4 id="caching-dynamic-content">Caching Dynamic Content</h4>

@@ -19,18 +19,35 @@ There are two key exceptions, though. First, if there are cookies in the HTTP he
 
 #### Caching with Cookies
 
-Requests that include cookies are not cached by default so that stale cookies don't impact the application behavior.
+Requests that include cookies aren't cached so stale cookies don't impact app behavior.
 
-In a few cases cookies are used client-side only, i.e. the cookies may be produced and consumed by JavaScript but are never processed by the PHP application. For example, Google Analytics uses cookies to store information about the page. In order to try to maximize default caching, Varnish will drop these special case cookies being sent in the HTTP request to the app. If those cookies are dropped and no other cookies are present, the page can follow the default caching behavior. 
+In some cases, cookies are used client-side only. For example, client-side JavaScript may produce and consume cookies but never interact with the server-side PHP app. Google Analytics is one specific example that uses cookies to store information about the page. In order to maximize default caching, Varnish drops these special case cookies from the HTTP request to the app. 
 
 Currently only the following cookies are dropped:
 
-* Cookies with no values (i.e. empty).
+* Empty cookies (i.e. cookies with no values).
 * Cookies from Google Analytics.
-* Cookies with the name "has_js".
-* URL's ending in media extensions have cookies stripped by default.These
-  include:
-  *otf|jpg|jpeg|gif|png|tiff|tif|svg|swf|ico|mp3|mp4|m4a|ogg|mov|avi|wmv|css|js
+* Cookies with the name <code>has_js</code>.
+* URL's ending in media extensions have cookies stripped by default. These include:
+    * otf
+    * jpg
+    * jpeg
+    * gif
+    * png
+    * tiff
+    * tif
+    * svg
+    * swf
+    * ico
+    * mp3
+    * mp4
+    * m4a
+    * ogg
+    * mov
+    * avi
+    * wmv
+    * css
+    * js
 
 #### Caching Dynamic Content
 
