@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>PHP Fog &mdash; Documentation Environment Variables</title> 
+		<title>PHP Fog &mdash; Documentation Dedicated Database</title> 
 
 		<link rel="stylesheet" href="http://appfog.com/css/style.css">
 		<link href="http://docs.appfog.com/css/prettify.css" type="text/css" rel="stylesheet" />
@@ -157,10 +157,10 @@
 					<ul id="docs_nav">
 						
 						<li class="breadcrumb-separator">&raquo;</li>
-						<li><a href="/getting-started">Getting Started</a></li>
+						<li><a href="/customize">Customize Your App</a></li>
 						
 						<li class="breadcrumb-separator">&raquo;</li>
-						<li><a href="#">Environment Variables</a></li>
+						<li><a href="#">Dedicated Database</a></li>
 					</ul>
 					<ul id="secondary_nav">
 						<li><a href="http://docs.appfog.com">AppFog Docs</a></li>
@@ -178,22 +178,40 @@
 	<div class="span8">
 		<div class="row">
 			<div class="span8">
-				<h1>Environment Variables</h1>
-				<p>When you first create your app, PHP Fog sets up your MySQL Database credentials for you. Instead of hard-coding these credentials into your app, PHP Fog creates a set of environment variables and stores your credentials there. </p>
+				<h1>Dedicated Database</h1>
+				<p>For the most reliable service, we recommend using a dedicated database for your production apps. Luckily, PHP Fog makes gives you the ability to upgrade in a matter of a few clicks to dedicated database with the following configuration:</p>
 
-<p>To access these credentials in your app, simply call these environment variables using the <code>getenv()</code> function. You can find these environment variables and the actual credential values in your PHP Fog app console under the “Env. Variables” tab. </p>
+<ul>
+  <li>Amazon RDS</li>
+  <li>MySQL 5.5</li>
+  <li>Daily snapshots for disaster recovery</li>
+</ul>
+
+<h3 id="in-your-app-console-under-account-click-on-dedicated-database">1. In your app console, under “account” click on “Dedicated Database”.</h3>
+
+<h3 id="fill-out-the-requested-information">2.  Fill out the requested information.</h3>
+
+<p>The CIDR is the IP range you want to give remote database access to. </p>
+
+<h3 id="migrate-your-database">3. Migrate your database.</h3>
+
+<p>Once your new dedicated database is provisioned, you’ll need to migrate your data from the PHP Fog shared database. You can do this easily from phpMyAdmin which you can access from your app console under the “Database” tab.</p>
+
+<p><img class="screenshot" src="/img/screenshots/database.png" alt="Launch PHPMyAdmin" /></p>
+
+<p>Select the “Synchronize” tab in phpMyAdmin.</p>
+
+<p><img class="screenshot" src="/img/screenshots/db_sync.png" alt="Synchronizing your Database" /></p>
+
+<p>Using the credentials provided for you new database host, synchronize the database of your app to the new RDS instance.</p>
+
+<h3 id="update-your-environment-variables-in-your-code-to-reflect-the-new-dedicated-database-host">3.  Update your environment variables in your code to reflect the new dedicated database host.</h3>
+
+<p>Once you change the database connection information in your app to connect to the new dedicated database, commit, and push your code, your new dedicated database will be live! </p>
+
+<p>Please note that there will be two sets of credentials, one for the PHP Fog shared database and one for your new dedicated database.</p>
 
 <p><img class="screenshot" src="/img/screenshots/env-vars.png" alt="Environment Variables" /></p>
-
-<p>Here’s an example of how to access your environment variables:</p>
-
-<pre class="prettyprint linenums"><code>&lt;?php
-    // Example use of getenv()
-    $ip = getenv('MYSQL_DB_HOST');
-?&gt;
-</code></pre>
-
-<p>These environment variables also make it easy for you to <a href="/getting-started/development">set up your development environment</a>.</p>
 
 
 			</div>
@@ -215,11 +233,11 @@
 					<div class="accordion-group">
 						<div class="row border-bottom accordion-heading">
 							<div class="span3">
-								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne"><h6><i class="accordion-icon icon-chevron-down"></i> Getting Started</h6></a>
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne"><h6><i class="accordion-icon icon-chevron-right"></i> Getting Started</h6></a>
 							</div>
 						</div>
 						
-						<ul class="pages accordion-body collapse in" id="collapseOne" style="height: auto;">
+						<ul class="pages accordion-body collapse" id="collapseOne" style="height: 0;">
 						
 							<div class="accordion-inner">
 								
@@ -231,7 +249,7 @@
 								
 								<li><a href="/getting-started/git.html" >Git</a></li>
 								
-								<li><a href="/getting-started/env-vars.html" class="on">Environment Variables</a></li>
+								<li><a href="/getting-started/env-vars.html" >Environment Variables</a></li>
 								
 								<li><a href="/getting-started/development.html" >Development</a></li>
 								
@@ -242,15 +260,15 @@
 					<div class="accordion-group">
 						<div class="row border-bottom accordion-heading">
 						<div class="span3">
-								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo"><h6><i class="accordion-icon icon-chevron-right"></i> Customize Your App</h6></a>
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo"><h6><i class="accordion-icon icon-chevron-down"></i> Customize Your App</h6></a>
 							</div>
 						</div>
 						
-						<ul class="pages accordion-body collapse" id="collapseTwo" style="height: 0;">
+						<ul class="pages accordion-body collapse in" id="collapseTwo" style="height: auto;">
 						
 							<div class="accordion-inner">
 							
-							<li><a href="/customize/dedicated-database.html" >Dedicated Database</a></li>
+							<li><a href="/customize/dedicated-database.html" class="on">Dedicated Database</a></li>
 							
 							<li><a href="/customize/add-ons.html" >Add-ons</a></li>
 							

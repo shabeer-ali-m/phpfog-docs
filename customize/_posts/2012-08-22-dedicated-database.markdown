@@ -5,55 +5,35 @@ weight: 5
 description: Extra DB juice with just a few clicks. 
 ---
 
-This guide is to help you setup a dedicated database for your PHPFog apps.
+For the most reliable service, we recommend using a dedicated database for your production apps. Luckily, PHP Fog makes gives you the ability to upgrade in a matter of a few clicks to dedicated database with the following configuration:
+ 
+* Amazon RDS
+* MySQL 5.5
+* Daily snapshots for disaster recovery
 
-#Specs
-- Running MySQL 5.5
-- Daily snapshots taken for instance disaster recovery
-- Dedicated
+### 1. In your app console, under "account" click on "Dedicated Database".
 
-#Setup a Dedicated database for your PHPFog apps
+### 2.  Fill out the requested information.
 
-For production apps, PHPFog suggests the use of our dedicated database feature.
-To enable dedicated database follow these steps
+The CIDR is the IP range you want to give remote database access to. 
 
-### 1.  Under "account" select "Dedicated Database".
+### 3. Migrate your database.
 
-This is where you will fill out the information to setup your new dedicated
-database.
-
-### 2.  Fill out the information requested
-
-The CIDR is the IP range you wish to be accessible remotely to your database
-
-# Once your database has been provisioned:
-
-You will need to migrate your database from PHPFog to your new dedicated
-database.
-
-### 1.  Connect to PHPMyAdmin to access your shared database.
-
-PHPMyAdmin can be found in your app's console under "database".
+Once your new dedicated database is provisioned, you'll need to migrate your data from the PHP Fog shared database. You can do this easily from phpMyAdmin which you can access from your app console under the "Database" tab.
 
 <img class="screenshot" src="/img/screenshots/database.png" alt="Launch PHPMyAdmin"/>
 
-### 2. Select the synchronize Tab in PHPMyAdmin.
+Select the "Synchronize" tab in phpMyAdmin.
 
 <img class="screenshot" src="/img/screenshots/db_sync.png" alt="Synchronizing your
 Database"/>
 
-### 2. Migrate your data.
-
 Using the credentials provided for you new database host, synchronize the database of your app to the new RDS instance.
 
-### 3.  Update your environmental variables in your codebase to reflect the new dedicated database host.
+### 3.  Update your environment variables in your code to reflect the new dedicated database host.
 
-With your new dedicated data migrated, you can now update your environmental
-variables or database credentials to make full use of your new dedicated
-database.
+Once you change the database connection information in your app to connect to the new dedicated database, commit, and push your code, your new dedicated database will be live! 
 
-Please note that there will be two sets of credentials, one for your existing
-shared database and one for your new dedicated database server.
+Please note that there will be two sets of credentials, one for the PHP Fog shared database and one for your new dedicated database.
 
-<img class="screenshot" src="/img/screenshots/env-vars.png" alt="Environmental Variables"/>
-
+<img class="screenshot" src="/img/screenshots/env-vars.png" alt="Environment Variables"/>
