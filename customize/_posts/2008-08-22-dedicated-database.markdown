@@ -5,17 +5,17 @@ weight: 5
 description: Extra DB juice with just a few clicks. 
 ---
 
-For the most reliable service, we recommend using a dedicated database for your production apps. Luckily, PHP Fog makes gives you the ability to upgrade in a matter of a few clicks to dedicated database with the following configuration:
+For the most reliable service, we recommend using a dedicated database for your production apps. Dedicated database on PHP Fog features:
  
 * Amazon RDS
-* MySQL 5.5
-* Daily snapshots for disaster recovery
+* MySQL 5.5.23
+* Daily snapshots for disaster recovery (perform your own direct backups)
 
 ### 1. In your app console, under "account" click on "Dedicated Database".
 
 ### 2.  Fill out the requested information.
 
-The CIDR is the IP range you want to give remote database access to. 
+The CIDR is the IP range you want to give direct database access to.
 
 ### 3. Migrate your database.
 
