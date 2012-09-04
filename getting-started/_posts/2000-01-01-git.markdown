@@ -24,7 +24,7 @@ Go to your App Console at PHP Fog and click on the "Source Code" tab on the left
 Copy the value for "Clone your git repository:", which should look something like: 
 
 {: .prettyprint}
-    $ git clone git@:foo.phpfogapp.com
+    $ git clone git@git01.phpfog.com:foo.phpfogapp.com
 
 Run the command in your terminal, and you should see something like this: 
 
