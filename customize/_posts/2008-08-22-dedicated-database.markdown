@@ -11,6 +11,29 @@ For the most reliable service, we recommend using a dedicated database for your 
 * MySQL 5.5.23
 * Daily snapshots for disaster recovery (perform your own direct backups)
 
+### Small Dedicated Database
+
+* $150 per month
+* 1.7 GB Memory
+* 26 GB Storage Volume
+* Moderate I/O Capacity
+
+### Large Dedicated Database
+
+* $500 per month
+* 7.5 GB Memory
+* 50 GB Storage Volume
+* High I/O Capacity
+
+### X-Large Dedicated Database
+
+* $800 per month
+* 15 GB Memory
+* 100 GB Storage Volume
+* High I/O Capacity
+
+# Installation
+
 ### 1. In your app console, under "account" click on "Dedicated Database".
 
 ### 2.  Fill out the requested information.
