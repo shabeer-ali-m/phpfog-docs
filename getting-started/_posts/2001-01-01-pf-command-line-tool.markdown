@@ -16,7 +16,7 @@ Prefer to just use git? Comfortable with SSH keys already? PF is completely opti
 ### 1. Download and install PF.
 
 {: .prettyprint}
-    $ curl -s https://raw.github.com/phpfog/pf/master/bin/installer | php
+    $ curl -s https://raw.github.com/phpfog/pf/master/bin/installer > installer && php installer
 
 Windows user? Skip down to [the Windows section](#windows).
 
