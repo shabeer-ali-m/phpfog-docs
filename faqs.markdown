@@ -4,6 +4,7 @@ title: Frequently Asked Questions
 weight: 14
 ---
 
+* [What's the difference between PHP Fog and AppFog?](#difference-af-pf)
 * [How reliable is PHP Fog?](#reliable)
 * [What type of SLA does PHP Fog offer?](#sla)
 * [Is my app still running when PHP Fog is under maintenance?](#maintenance)
@@ -19,6 +20,12 @@ weight: 14
 * [What are the differences between Shared and Dedicated Clouds?](#sharedvdedicated)
 * [How do I log into New Relic? ](#newrelic)
 * [Can I migrate from a Dedicated Cloud to a Shared Cloud?](#migrate)
+
+### What's the difference between PHP Fog and AppFog? {#difference-af-pf}
+
+[PHP Fog](https://phpfog.com), our original product, is a Platform-as-a-Service built specifically for PHP web apps. It runs exclusively in Amazon's AWS US East datacenter and you deploy apps using git. 
+
+[AppFog](https://appfog.com) is our more generalized Platform-as-a-Service based on [the Cloud Foundry Open Source Project](http://cloudfoundry.org/). You can choose from [a growing list of languages and frameworks](http://docs.appfog.com/roadmap#langs) and you can deploy from [a growing list of infrastructures and datacenters](http://docs.appfog.com/roadmap#infras) using our [command line tool](http://docs.appfog.com/getting-started/af-cli). Read more about AppFog [here](http://docs.appfog.com).
 
 #### How reliable is PHP Fog? {#reliable}
 
