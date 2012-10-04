@@ -175,7 +175,7 @@ Create a registry file with the text below and run it from the desktop. You may 
 Open up a new Git Shell and run the following command:
 
 {: .prettyprint}
-	curl -s https://raw.github.com/phpfog/pf/master/bin/installer | php
+	curl -s https://raw.github.com/phpfog/pf/master/bin/installer > installer && php installer
 
 If you get PHP parse errors, just keep re-running the command until it completes successfully.
 
